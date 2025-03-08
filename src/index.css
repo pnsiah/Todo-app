@@ -1,0 +1,65 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+body{
+  font-family: "Josefin Sans", sans-serif;
+  --bright-blue: hsl(220, 98%, 61%);
+  --bg-color: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --primary-clr-50: hsl(0, 0%, 98%);
+  --primary-clr-100: hsl(236, 33%, 92%);
+  --primary-clr-150: hsl(233, 11%, 84%);
+  --primary-clr-200: hsl(236, 9%, 61%);
+  --primary-clr-400: hsl(235, 19%, 35%);
+}
+
+.dark-mode{
+  --primary-clr-50: hsl(235, 21%, 11%);
+  --primary-clr-100: hsl(235, 24%, 19%);
+  --primary-clr-150: hsl(234, 39%, 85%);
+  --primary-clr-accent: hsl(236, 33%, 92%);
+  --primary-clr-180: hsl(234, 11%, 52%);
+  --primary-clr-200: hsl(233, 14%, 35%);
+  --primary-clr-400: hsl(237, 14%, 26%);
+}
+
+ol,
+ul {
+ list-style: none;
+}
+
+img,
+svg,
+video,
+canvas,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  overflow-wrap: break-word;
+}
