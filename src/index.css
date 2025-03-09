@@ -1,3 +1,15 @@
+:root {
+  --bright-blue: hsl(220, 98%, 61%);
+  --bg-color: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --primary-clr-50: hsl(0, 0%, 98%);
+  --primary-clr-100: hsl(236, 33%, 92%);
+  --primary-clr-150: hsl(233, 11%, 84%);
+  --primary-clr-200: hsl(236, 9%, 61%);
+  --primary-clr-400: hsl(235, 19%, 35%);
+  --bg-mobile: url(./assets/images/bg-mobile-light.jpg);
+  --bg-desktop: url(./assets/images/bg-desktop-light.jpg);
+}
+
 *,
 ::before,
 ::after {
@@ -11,18 +23,14 @@
   outline: 0;
 }
 
-body{
+body {
+  height: 100vh;
   font-family: "Josefin Sans", sans-serif;
-  --bright-blue: hsl(220, 98%, 61%);
-  --bg-color: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
-  --primary-clr-50: hsl(0, 0%, 98%);
-  --primary-clr-100: hsl(236, 33%, 92%);
-  --primary-clr-150: hsl(233, 11%, 84%);
-  --primary-clr-200: hsl(236, 9%, 61%);
-  --primary-clr-400: hsl(235, 19%, 35%);
+  /* background-color: var(--primary-clr-100); */
+  position: relative;
 }
 
-.dark-mode{
+.dark-mode {
   --primary-clr-50: hsl(235, 21%, 11%);
   --primary-clr-100: hsl(235, 24%, 19%);
   --primary-clr-150: hsl(234, 39%, 85%);
@@ -30,11 +38,13 @@ body{
   --primary-clr-180: hsl(234, 11%, 52%);
   --primary-clr-200: hsl(233, 14%, 35%);
   --primary-clr-400: hsl(237, 14%, 26%);
+  --bg-mobile-: url(./assets/images/bg-desktop-dark.jpg);
+  --bg-desktop: url(./assets/images/bg-desktop-dark.jpg);
 }
 
 ol,
 ul {
- list-style: none;
+  list-style: none;
 }
 
 img,
@@ -62,4 +72,35 @@ h5,
 h6,
 span {
   overflow-wrap: break-word;
+}
+
+.content {
+  width: 80%;
+  height: 80%;
+  /* background: var(--primary-clr-50); */
+  /* box-shadow: 2px 1px 100px black; */
+  z-index: 5;
+  /* margin: 0 auto; */
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+
+@media screen and (min-width: 750px) {
+  .content {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .content {
+    width: 50vw;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .content {
+    width: 40vw;
+  }
 }
