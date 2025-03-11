@@ -74,3 +74,16 @@
   color: var(--primary-clr-400);
   cursor: pointer;
 }
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-weight: 600;
+}
+
+.strike-through {
+  color: var(--primary-clr-200);
+  text-decoration: line-through;
+}
