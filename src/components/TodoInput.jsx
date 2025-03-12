@@ -3,7 +3,6 @@ import "./container.css";
 import { useState } from "react";
 
 const TodoInput = (props) => {
-
   const onChangeHandler = (event) => {
     props.setEnteredTodo(event.target.value);
   };
@@ -15,15 +14,15 @@ const TodoInput = (props) => {
   };
 
   return (
-    <Card className='container h-flex input-margins'>
-      <div className='round'></div>
-      <form onSubmit={onSubmitHandler} action='' className='form_control'>
+    <Card className="container h-flex input-margins">
+      <div className="round"></div>
+      <form onSubmit={onSubmitHandler} action="" className="form_control">
         <input
           onChange={onChangeHandler}
           value={props.enteredTodo}
-          className='todo_text'
-          type='text'
-          placeholder='Add todo'
+          className="todo_text"
+          type="text"
+          placeholder="Add todo"
         />
       </form>
     </Card>

@@ -5,16 +5,15 @@ import TodoInfo from "./TodoInfo";
 
 const EmptyTodo = () => {
   return (
-    <Card className='container'>
-      <div className='error border'>No Todo</div>
+    <Card className="container">
+      <div className="error border">No Todo</div>
     </Card>
   );
 };
 
 const TodoList = (props) => {
-
   return (
-    <Card className='container'>
+    <Card className="container">
       {props.todos.length > 0 ? (
         props.todos.map((todo, index) => (
           <TodoItem
@@ -29,7 +28,7 @@ const TodoList = (props) => {
         <EmptyTodo />
       )}
 
-      <TodoInfo />
+      <TodoInfo count={props.count} clearCompleted={props.clearCompleted} />
     </Card>
   );
 };
