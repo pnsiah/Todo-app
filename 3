@@ -10,7 +10,7 @@ const Todo = () => {
   ]);
   const [enteredTodo, setEnteredTodo] = useState("");
 
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("All");
 
   const changeStatus = (status, index) => {
     const newTodos = [
@@ -33,28 +33,6 @@ const Todo = () => {
     });
   };
 
-  const getFilteredList = () => {
-    if (filter === "all") {
-      return todos;
-    } else if (filter === "active") {
-      return todos.filter((todo) => todo.isCompleted === false);
-    } else if (filter === "completed") {
-      return todos.filter((todo) => todo.isCompleted === true);
-    }
-  };
-
-  const activeTodos = todos.filter((todo) => todo.isCompleted === false);
-  const count = activeTodos.length;
-
-  const filteredList = getFilteredList();
-  console.log(filteredList);
-
-  const clearCompleted = () => {
-    const newTodos = todos.filter((todo) => todo.isCompleted === false);
-    setTodos(newTodos);
-    console.log("clicked");
-  };
-
   return (
     <Card>
       <TodoInput
@@ -62,12 +40,7 @@ const Todo = () => {
         setEnteredTodo={setEnteredTodo}
         onSave={AddTodo}
       />
-      <TodoList
-        count={count}
-        todos={filteredList}
-        changeStatus={changeStatus}
-        clearCompleted={clearCompleted}
-      />
+      <TodoList todos={todos} changeStatus={changeStatus} />
       <TodoControls filter={filter} setFilter={setFilter} />
     </Card>
   );

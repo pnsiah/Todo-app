@@ -2,12 +2,28 @@ import Card from "./Card";
 import "./todocontrols.css";
 import "./container.css";
 
-const TodoControls = () => {
+const TodoControls = (props) => {
+  const changeFilter = (filter) => {
+    props.setFilter(filter);
+  };
+
+  const HandleFilterChange = (e) => {
+    changeFilter(e.target.innerText);
+    console.log(e.target.innerText);
+    console.log(props.filter);
+  };
+
   return (
-    <Card className='container controls'>
-      <div className='accent'>All</div>
-      <div className='light actions'>Active</div>
-      <div className='light actions'>Completed</div>
+    <Card className="container controls">
+      <div onClick={HandleFilterChange} className="accent">
+        all
+      </div>
+      <div onClick={HandleFilterChange} className="light actions">
+        active
+      </div>
+      <div onClick={HandleFilterChange} className="light actions">
+        completed
+      </div>
     </Card>
   );
 };

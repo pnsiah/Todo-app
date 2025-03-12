@@ -2,12 +2,17 @@ import Card from "./Card";
 import TodoControls from "./TodoControls";
 import "./container.css";
 
-const TodoInfo = () => {
+const TodoInfo = (props) => {
+  const clearHandler = (e) => {
+    props.clearCompleted();
+  };
   return (
-    <Card className='container h-flex info'>
-      <div className='light actions'>5 items left</div>
+    <Card className="container h-flex info">
+      <div className="light actions">{props.count} items left</div>
       <TodoControls />
-      <div className='light actions'>Clear Completed</div>
+      <div className="light actions" onClick={clearHandler}>
+        Clear Completed
+      </div>
     </Card>
   );
 };
