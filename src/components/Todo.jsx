@@ -10,7 +10,7 @@ const Todo = () => {
   ]);
   const [enteredTodo, setEnteredTodo] = useState("");
 
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("All");
 
   const changeStatus = (status, index) => {
     const newTodos = [
@@ -26,6 +26,7 @@ const Todo = () => {
     const todo = {
       subject: item,
       isCompleted: false,
+      // id: Math.random().toString(),
     };
 
     setTodos((prev) => {
@@ -34,11 +35,11 @@ const Todo = () => {
   };
 
   const getFilteredList = () => {
-    if (filter === "all") {
+    if (filter === "All") {
       return todos;
-    } else if (filter === "active") {
+    } else if (filter === "Active") {
       return todos.filter((todo) => todo.isCompleted === false);
-    } else if (filter === "completed") {
+    } else if (filter === "Completed") {
       return todos.filter((todo) => todo.isCompleted === true);
     }
   };
@@ -47,12 +48,15 @@ const Todo = () => {
   const count = activeTodos.length;
 
   const filteredList = getFilteredList();
-  console.log(filteredList);
 
   const clearCompleted = () => {
     const newTodos = todos.filter((todo) => todo.isCompleted === false);
     setTodos(newTodos);
-    console.log("clicked");
+  };
+
+  const removeItem = (id) => {
+    const newTodos = todos.filter((todo, index) => index != id);
+    setTodos(newTodos);
   };
 
   return (
@@ -67,6 +71,7 @@ const Todo = () => {
         todos={filteredList}
         changeStatus={changeStatus}
         clearCompleted={clearCompleted}
+        removeItem={removeItem}
       />
       <TodoControls filter={filter} setFilter={setFilter} />
     </Card>
