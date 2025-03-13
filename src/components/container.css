@@ -22,10 +22,17 @@
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
-  border: 1px solid var(--primary-200);
-  background: red;
+  border: 1px solid var(--primary-clr-400);
   margin-left: 0.5rem;
   margin-bottom: 0.4rem;
+  cursor: pointer;
+}
+
+.check_mark {
+  background:
+    url("../assets/images/icon-check.svg") center / contain no-repeat,
+    linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border: none;
 }
 
 .todo_text {
@@ -33,6 +40,7 @@
   margin-left: 0.5rem;
   font-size: 1.2rem;
   /* justify-self: right; */
+  cursor: pointer;
 }
 .input-margins {
   margin: 1.4em 0.4em;
@@ -46,6 +54,7 @@
 .icon_container {
   margin-left: auto;
   padding-right: 1rem;
+  cursor: pointer;
   /* width: 2rem; */
   /* height: 50%; */
 }

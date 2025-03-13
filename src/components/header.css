@@ -12,6 +12,10 @@
   text-transform: uppercase;
 }
 
+.time {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 780px) {
   .heading {
     font-size: 1.6rem;

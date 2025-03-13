@@ -22,6 +22,7 @@ const TodoList = (props) => {
             id={index}
             key={index}
             changeStatus={props.changeStatus}
+            removeItem={props.removeItem}
           />
         ))
       ) : (
