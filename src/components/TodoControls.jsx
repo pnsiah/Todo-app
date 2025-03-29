@@ -3,26 +3,21 @@ import "./todocontrols.css";
 import "./container.css";
 
 const TodoControls = (props) => {
-  const changeFilter = (filter) => {
-    props.setFilter(filter);
-  };
-
   const HandleFilterChange = (e) => {
-    changeFilter(e.target.innerText);
-    console.log(e.target.innerText);
-    console.log(props.filter);
+    console.log("clicked");
+    props.setFilter(e.target.innerText);
   };
 
   return (
     <Card className="container controls">
       <div onClick={HandleFilterChange} className="accent">
-        all
+        All
       </div>
       <div onClick={HandleFilterChange} className="light actions">
-        active
+        Active
       </div>
       <div onClick={HandleFilterChange} className="light actions">
-        completed
+        Completed
       </div>
     </Card>
   );

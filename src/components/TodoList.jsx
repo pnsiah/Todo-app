@@ -19,17 +19,24 @@ const TodoList = (props) => {
           <TodoItem
             subject={todo.subject}
             status={todo.isCompleted}
-            id={index}
+            id={Math.random().toString()}
+            index={index}
             key={index}
             changeStatus={props.changeStatus}
             removeItem={props.removeItem}
+            allTodos={props.allTodos}
+            updateTodos={props.updateTodos}
           />
         ))
       ) : (
         <EmptyTodo />
       )}
 
-      <TodoInfo count={props.count} clearCompleted={props.clearCompleted} />
+      <TodoInfo
+        setFilter={props.setFilter}
+        count={props.count}
+        clearCompleted={props.clearCompleted}
+      />
     </Card>
   );
 };
