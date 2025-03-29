@@ -2,11 +2,11 @@ import Card from "./Card";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 import TodoControls from "./TodoControls";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Todo = () => {
   const [todos, setTodos] = useState([
-    { subject: "Trying", isCompleted: false },
+    { id: 1, subject: "Trying", isCompleted: false },
   ]);
   const [enteredTodo, setEnteredTodo] = useState("");
 
@@ -26,7 +26,7 @@ const Todo = () => {
     const todo = {
       subject: item,
       isCompleted: false,
-      // id: Math.random().toString(),
+      // id: Math.random().toString),
     };
 
     setTodos((prev) => {
@@ -35,6 +35,7 @@ const Todo = () => {
   };
 
   const getFilteredList = () => {
+    console.log(todos);
     if (filter === "All") {
       return todos;
     } else if (filter === "Active") {
@@ -59,6 +60,11 @@ const Todo = () => {
     setTodos(newTodos);
   };
 
+  const updateTodos = (updatedList) => {
+    console.log("Updating todos:", updatedList);
+    setTodos(updatedList);
+  };
+
   return (
     <Card>
       <TodoInput
@@ -72,6 +78,10 @@ const Todo = () => {
         changeStatus={changeStatus}
         clearCompleted={clearCompleted}
         removeItem={removeItem}
+        allTodos={todos}
+        updateTodos={updateTodos}
+        filter={filter}
+        setFilter={setFilter}
       />
       <TodoControls filter={filter} setFilter={setFilter} />
     </Card>
