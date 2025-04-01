@@ -8,12 +8,15 @@ const Header = () => {
   const [darkmode, setDarkmode] = useState(false);
 
   const toggleMode = () => {
-    setDarkmode(!darkmode);
-    if (darkmode) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
+    setDarkmode((prevMode) => {
+      const newMode = !prevMode;
+      if (newMode) {
+        document.body.classList.add("dark-mode");
+      } else {
+        document.body.classList.remove("dark-mode");
+      }
+      return newMode;
+    });
   };
   return (
     <Card className="header">

@@ -9,14 +9,10 @@
 .img-banner {
   background: var(--bg-mobile);
   width: 100%;
-  background-position: center;
+  height: 30vh;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 30%;
-}
-.default {
-  height: 70%;
-  background-color: var(--primary-clr-150);
+  background-position: center center;
 }
 
 @media screen and (min-width: 780px) {

@@ -2,62 +2,70 @@ import Card from "./Card";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 import TodoControls from "./TodoControls";
+import DragAndDropHint from "./DragAndDropHint";
 import { useState, useRef } from "react";
 
 const Todo = () => {
-  const [todos, setTodos] = useState([
-    { id: 1, subject: "Trying", isCompleted: false },
+  // Initialize todos
+  const [todos, setTodos] = useState(() => [
+    {
+      id: "1",
+      subject: "Complete Todo App on Frontend Mentor",
+      isCompleted: false,
+    },
+    { id: "2", subject: "Pick up groceries", isCompleted: true },
   ]);
-  const [enteredTodo, setEnteredTodo] = useState("");
 
-  const [filter, setFilter] = useState("All");
+  // Get new todos
+  const [todoInput, setTodoInput] = useState("");
 
-  const changeStatus = (status, index) => {
-    const newTodos = [
-      ...todos.slice(0, index),
-      { ...todos[index], isCompleted: !status },
-      ...todos.slice(index + 1),
-    ];
-
-    setTodos(newTodos);
-  };
-
-  const AddTodo = (item) => {
+  const HandleAddTodo = (item) => {
     const todo = {
+      id: crypto.randomUUID(),
       subject: item,
       isCompleted: false,
-      // id: Math.random().toString),
     };
-
     setTodos((prev) => {
       return [todo, ...prev];
     });
   };
 
+  // Set Filter
+  const [filter, setFilter] = useState("All");
+
+  // get active todos count
+  const count = todos.filter((todo) => todo.isCompleted === false).length;
+
   const getFilteredList = () => {
-    console.log(todos);
-    if (filter === "All") {
-      return todos;
-    } else if (filter === "Active") {
-      return todos.filter((todo) => todo.isCompleted === false);
-    } else if (filter === "Completed") {
-      return todos.filter((todo) => todo.isCompleted === true);
+    switch (filter) {
+      case "Active":
+        return todos.filter((todo) => !todo.isCompleted);
+      case "Completed":
+        return todos.filter((todo) => todo.isCompleted);
+      default:
+        return todos;
     }
   };
 
-  const activeTodos = todos.filter((todo) => todo.isCompleted === false);
-  const count = activeTodos.length;
-
   const filteredList = getFilteredList();
 
+  // Remove all completed todos
   const clearCompleted = () => {
-    const newTodos = todos.filter((todo) => todo.isCompleted === false);
-    setTodos(newTodos);
+    setTodos(todos.filter((todo) => todo.isCompleted === false));
   };
 
+  // Delete todo item
   const removeItem = (id) => {
-    const newTodos = todos.filter((todo, index) => index != id);
-    setTodos(newTodos);
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  // Toggle status
+  const toggleTodoStatus = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id == id ? { ...todo, isCompleted: !todo.isCompleted } : todo,
+      ),
+    );
   };
 
   const updateTodos = (updatedList) => {
@@ -68,14 +76,16 @@ const Todo = () => {
   return (
     <Card>
       <TodoInput
-        enteredTodo={enteredTodo}
-        setEnteredTodo={setEnteredTodo}
-        onSave={AddTodo}
+        todoInput={todoInput}
+        setTodoInput={setTodoInput}
+        HandleAddTodo={HandleAddTodo}
+        setFilter={setFilter}
+        filter={filter}
       />
       <TodoList
         count={count}
         todos={filteredList}
-        changeStatus={changeStatus}
+        toggleTodoStatus={toggleTodoStatus}
         clearCompleted={clearCompleted}
         removeItem={removeItem}
         allTodos={todos}
@@ -84,6 +94,7 @@ const Todo = () => {
         setFilter={setFilter}
       />
       <TodoControls filter={filter} setFilter={setFilter} />
+      <DragAndDropHint filter={filter} />
     </Card>
   );
 };

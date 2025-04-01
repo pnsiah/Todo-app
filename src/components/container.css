@@ -1,7 +1,6 @@
 .container {
-  padding-block: 0.7em;
-  /* gap: 1rem; */
-  background-color: var(--primary-clr-50);
+  padding-block: 1em;
+  background-color: var(--card-bg);
   border-radius: 0.5rem;
 }
 
@@ -19,13 +18,24 @@
 }
 
 .round {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.4rem;
+  height: 1.4rem;
   border-radius: 50%;
-  border: 1px solid var(--primary-clr-400);
+  border: 1px solid var(--light-clr-1);
+  margin-bottom: 0.5em;
   margin-left: 0.5rem;
-  margin-bottom: 0.4rem;
   cursor: pointer;
+}
+
+.round:hover {
+  box-shadow:
+    0 0 1px 1px hsl(192, 100%, 67%),
+    0 0 1px 1px hsl(280, 87%, 65%);
+}
+
+.dnd {
+  margin: 5rem auto;
+  width: fit-content;
 }
 
 .check_mark {
@@ -36,10 +46,10 @@
 }
 
 .todo_text {
-  height: 24px;
+  color: var(--main-clr);
+  height: 26px;
   margin-left: 0.5rem;
-  font-size: 1.2rem;
-  /* justify-self: right; */
+  font-size: 1.5rem;
   cursor: pointer;
 }
 .input-margins {
@@ -47,7 +57,7 @@
 }
 
 .border {
-  border-bottom: 1px solid var(--primary-clr-400);
+  border-bottom: 1px solid var(--light-clr-1);
   border-radius: 0;
 }
 
@@ -65,9 +75,8 @@
 }
 
 .light {
-  color: var(--primary-clr-200);
+  color: var(--light-clr-1);
 }
-
 .container.h-flex.info > .container.controls {
   display: none;
   margin: 0;
@@ -80,7 +89,7 @@
 }
 
 .actions:hover {
-  color: var(--primary-clr-400);
+  color: var(--main-clr);
   cursor: pointer;
 }
 
@@ -93,6 +102,6 @@
 }
 
 .strike-through {
-  color: var(--primary-clr-200);
+  color: var(--main-clr);
   text-decoration: line-through;
 }
