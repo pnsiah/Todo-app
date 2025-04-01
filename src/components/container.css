@@ -1,6 +1,5 @@
 .container {
-  padding-block: 0.7em;
-  /* gap: 1rem; */
+  padding-block: 1em;
   background-color: var(--card-bg);
   border-radius: 0.5rem;
 }
@@ -23,18 +22,22 @@
   height: 1.4rem;
   border-radius: 50%;
   border: 1px solid var(--light-clr-1);
+  margin-bottom: 0.5em;
   margin-left: 0.5rem;
   cursor: pointer;
 }
+
+.round:hover {
+  box-shadow:
+    0 0 1px 1px hsl(192, 100%, 67%),
+    0 0 1px 1px hsl(280, 87%, 65%);
+}
+
 .dnd {
   margin: 5rem auto;
   width: fit-content;
 }
-.round:hover {
-  border: 1px solid var(--gradient);
-  border-color: gradient;
-  padding: 0.5rem;
-}
+
 .check_mark {
   background:
     url("../assets/images/icon-check.svg") center / contain no-repeat,
@@ -44,10 +47,9 @@
 
 .todo_text {
   color: var(--main-clr);
-  height: 24px;
+  height: 26px;
   margin-left: 0.5rem;
   font-size: 1.5rem;
-  /* justify-self: right; */
   cursor: pointer;
 }
 .input-margins {
@@ -100,6 +102,6 @@
 }
 
 .strike-through {
-  color: var(--primary-clr-200);
+  color: var(--main-clr);
   text-decoration: line-through;
 }

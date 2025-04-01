@@ -10,13 +10,22 @@ const TodoControls = (props) => {
 
   return (
     <Card className="container controls">
-      <div onClick={HandleFilterChange} className="accent">
+      <div
+        onClick={HandleFilterChange}
+        className={`light actions ${props.filter === "All" ? "accent" : ""}`}
+      >
         All
       </div>
-      <div onClick={HandleFilterChange} className="light actions">
+      <div
+        onClick={HandleFilterChange}
+        className={`light actions ${props.filter === "Active" ? "accent" : ""}`}
+      >
         Active
       </div>
-      <div onClick={HandleFilterChange} className="light actions">
+      <div
+        onClick={HandleFilterChange}
+        className={`light actions ${props.filter === "Completed" ? "accent" : ""}`}
+      >
         Completed
       </div>
     </Card>

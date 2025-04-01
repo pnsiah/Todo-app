@@ -23,8 +23,9 @@ const TodoList = (props) => {
             id={todo.id}
             key={todo.id}
             toggleTodoStatus={props.toggleTodoStatus}
+            todos={props.todos}
+            filter={props.filter}
             removeItem={props.removeItem}
-            allTodos={props.allTodos}
             updateTodos={props.updateTodos}
           />
         ))
@@ -33,6 +34,7 @@ const TodoList = (props) => {
       )}
 
       <TodoInfo
+        filter={props.filter}
         setFilter={props.setFilter}
         count={props.count}
         clearCompleted={props.clearCompleted}

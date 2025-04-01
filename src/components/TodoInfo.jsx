@@ -9,7 +9,7 @@ const TodoInfo = (props) => {
   return (
     <Card className="container h-flex info">
       <div className="light actions">{props.count} items left</div>
-      <TodoControls setFilter={props.setFilter} />
+      <TodoControls filter={props.filter} setFilter={props.setFilter} />
       <div className="light actions" onClick={clearHandler}>
         Clear Completed
       </div>

@@ -73,13 +73,14 @@ const Todo = () => {
     setTodos(updatedList);
   };
 
-  console.log;
   return (
     <Card>
       <TodoInput
         todoInput={todoInput}
         setTodoInput={setTodoInput}
         HandleAddTodo={HandleAddTodo}
+        setFilter={setFilter}
+        filter={filter}
       />
       <TodoList
         count={count}
@@ -93,7 +94,7 @@ const Todo = () => {
         setFilter={setFilter}
       />
       <TodoControls filter={filter} setFilter={setFilter} />
-      <DragAndDropHint />
+      <DragAndDropHint filter={filter} />
     </Card>
   );
 };

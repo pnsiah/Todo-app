@@ -1,6 +1,6 @@
 :root {
   --bright-blue: hsl(220, 98%, 61%);
-  --gradient: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --gradient: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   --card-bg: hsl(0, 0%, 98%);
   --body-bg: hsl(236, 33%, 92%);
   --light-clr-2: hsl(233, 11%, 84%);

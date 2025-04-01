@@ -12,6 +12,10 @@ const TodoInput = (props) => {
     if (props.todoInput.length < 1) return;
     props.HandleAddTodo(props.todoInput);
     props.setTodoInput("");
+    // show all todos otherwise the you can't see if the todo item was added
+    if (props.filter === "Completed") {
+      props.setFilter("All");
+    }
   };
 
   return (

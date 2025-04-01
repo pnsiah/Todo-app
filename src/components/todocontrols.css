@@ -13,8 +13,9 @@
     display: none;
   }
 }
+
 .accent {
-  color: var(--bright-blue);
+  color: var(--bright-blue) !important;
   cursor: pointer;
   text-transform: capitalize;
 }
