@@ -1,7 +1,7 @@
-import "./container.css";
 import Card from "./Card";
 import TodoItem from "./TodoItem";
 import TodoInfo from "./TodoInfo";
+import "./shared.css";
 
 const EmptyTodo = () => {
   return (

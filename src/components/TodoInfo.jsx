@@ -1,6 +1,6 @@
 import Card from "./Card";
 import TodoControls from "./TodoControls";
-import "./container.css";
+import "./shared.css";
 
 const TodoInfo = (props) => {
   const clearHandler = (e) => {

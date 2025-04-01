@@ -1,6 +1,5 @@
 import Card from "./Card";
-import "./container.css";
-import { useState } from "react";
+import "./shared.css";
 
 const TodoInput = (props) => {
   const onChangeHandler = (event) => {

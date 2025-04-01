@@ -1,6 +1,6 @@
-import "./container.css";
-import cross from "../assets/images/icon-cross.svg";
 import { useRef } from "react";
+import cross from "../assets/images/icon-cross.svg";
+import "./shared.css";
 
 const TodoItem = (props) => {
   const onClickHandler = () => {
