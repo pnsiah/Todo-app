@@ -19,10 +19,10 @@ const TodoList = (props) => {
           <TodoItem
             subject={todo.subject}
             status={todo.isCompleted}
-            id={Math.random().toString()}
             index={index}
-            key={index}
-            changeStatus={props.changeStatus}
+            id={todo.id}
+            key={todo.id}
+            toggleTodoStatus={props.toggleTodoStatus}
             removeItem={props.removeItem}
             allTodos={props.allTodos}
             updateTodos={props.updateTodos}

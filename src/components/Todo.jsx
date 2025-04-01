@@ -8,26 +8,16 @@ import { useState, useRef } from "react";
 const Todo = () => {
   // Initialize todos
   const [todos, setTodos] = useState(() => [
-    { subject: "Complete Todo App on Frontend Mentor", isCompleted: false },
-    { subject: "Pick up groceries", isCompleted: true },
+    {
+      id: "1",
+      subject: "Complete Todo App on Frontend Mentor",
+      isCompleted: false,
+    },
+    { id: "2", subject: "Pick up groceries", isCompleted: true },
   ]);
 
   // Get new todos
   const [todoInput, setTodoInput] = useState("");
-
-  // Set Filter
-  const [filter, setFilter] = useState("All");
-
-  // Toggle status
-  const changeStatus = (status, index) => {
-    const newTodos = [
-      ...todos.slice(0, index),
-      { ...todos[index], isCompleted: !status },
-      ...todos.slice(index + 1),
-    ];
-
-    setTodos(newTodos);
-  };
 
   const HandleAddTodo = (item) => {
     const todo = {
@@ -40,30 +30,42 @@ const Todo = () => {
     });
   };
 
+  // Set Filter
+  const [filter, setFilter] = useState("All");
+
+  // get active todos count
+  const count = todos.filter((todo) => todo.isCompleted === false).length;
+
   const getFilteredList = () => {
-    console.log(todos);
-    if (filter === "All") {
-      return todos;
-    } else if (filter === "Active") {
-      return todos.filter((todo) => todo.isCompleted === false);
-    } else if (filter === "Completed") {
-      return todos.filter((todo) => todo.isCompleted === true);
+    switch (filter) {
+      case "Active":
+        return todos.filter((todo) => !todo.isCompleted);
+      case "Completed":
+        return todos.filter((todo) => todo.isCompleted);
+      default:
+        return todos;
     }
   };
 
-  const activeTodos = todos.filter((todo) => todo.isCompleted === false);
-  const count = activeTodos.length;
-
   const filteredList = getFilteredList();
 
+  // Remove all completed todos
   const clearCompleted = () => {
-    const newTodos = todos.filter((todo) => todo.isCompleted === false);
-    setTodos(newTodos);
+    setTodos(todos.filter((todo) => todo.isCompleted === false));
   };
 
+  // Delete todo item
   const removeItem = (id) => {
-    const newTodos = todos.filter((todo, index) => index != id);
-    setTodos(newTodos);
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  // Toggle status
+  const toggleTodoStatus = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id == id ? { ...todo, isCompleted: !todo.isCompleted } : todo,
+      ),
+    );
   };
 
   const updateTodos = (updatedList) => {
@@ -71,6 +73,7 @@ const Todo = () => {
     setTodos(updatedList);
   };
 
+  console.log;
   return (
     <Card>
       <TodoInput
@@ -81,7 +84,7 @@ const Todo = () => {
       <TodoList
         count={count}
         todos={filteredList}
-        changeStatus={changeStatus}
+        toggleTodoStatus={toggleTodoStatus}
         clearCompleted={clearCompleted}
         removeItem={removeItem}
         allTodos={todos}

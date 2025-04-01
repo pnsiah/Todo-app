@@ -4,12 +4,13 @@ import { useRef } from "react";
 
 const TodoItem = (props) => {
   const onClickHandler = () => {
-    props.changeStatus(props.status, props.index);
+    props.toggleTodoStatus(props.id);
   };
 
   const removeItemHandler = () => {
-    props.removeItem(props.index);
+    props.removeItem(props.id);
   };
+
   const draggedItemIdx = useRef(null);
   const draggedOverItemIdx = useRef(null);
 
@@ -20,6 +21,7 @@ const TodoItem = (props) => {
     const copy = [...props.allTodos];
     const tmp = copy.splice(draggedItemIdx.current, 1)[0];
     copy.splice(draggedOverItemIdx.current, 0, tmp);
+    console.log("copy", copy);
     props.updateTodos([...copy]);
     draggedItemIdx.current = null;
     draggedOverItemIdx.current = null;
@@ -36,6 +38,7 @@ const TodoItem = (props) => {
       }}
       onDrop={(e) => {
         draggedOverItemIdx.current = props.index;
+        console.log("drop", draggedOverItemIdx.current);
         handleSort();
       }}
       className="container h-flex border"
