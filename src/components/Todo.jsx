@@ -2,16 +2,23 @@ import Card from "./Card";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 import TodoControls from "./TodoControls";
+import DragAndDropHint from "./DragAndDropHint";
 import { useState, useRef } from "react";
 
 const Todo = () => {
-  const [todos, setTodos] = useState([
-    { id: 1, subject: "Trying", isCompleted: false },
+  // Initialize todos
+  const [todos, setTodos] = useState(() => [
+    { subject: "Complete Todo App on Frontend Mentor", isCompleted: false },
+    { subject: "Pick up groceries", isCompleted: true },
   ]);
-  const [enteredTodo, setEnteredTodo] = useState("");
 
+  // Get new todos
+  const [todoInput, setTodoInput] = useState("");
+
+  // Set Filter
   const [filter, setFilter] = useState("All");
 
+  // Toggle status
   const changeStatus = (status, index) => {
     const newTodos = [
       ...todos.slice(0, index),
@@ -22,13 +29,12 @@ const Todo = () => {
     setTodos(newTodos);
   };
 
-  const AddTodo = (item) => {
+  const HandleAddTodo = (item) => {
     const todo = {
+      id: crypto.randomUUID(),
       subject: item,
       isCompleted: false,
-      // id: Math.random().toString),
     };
-
     setTodos((prev) => {
       return [todo, ...prev];
     });
@@ -68,9 +74,9 @@ const Todo = () => {
   return (
     <Card>
       <TodoInput
-        enteredTodo={enteredTodo}
-        setEnteredTodo={setEnteredTodo}
-        onSave={AddTodo}
+        todoInput={todoInput}
+        setTodoInput={setTodoInput}
+        HandleAddTodo={HandleAddTodo}
       />
       <TodoList
         count={count}
@@ -84,6 +90,7 @@ const Todo = () => {
         setFilter={setFilter}
       />
       <TodoControls filter={filter} setFilter={setFilter} />
+      <DragAndDropHint />
     </Card>
   );
 };

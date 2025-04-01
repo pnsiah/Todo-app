@@ -10,7 +10,6 @@ const TodoItem = (props) => {
   const removeItemHandler = () => {
     props.removeItem(props.index);
   };
-
   const draggedItemIdx = useRef(null);
   const draggedOverItemIdx = useRef(null);
 

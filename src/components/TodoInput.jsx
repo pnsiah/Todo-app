@@ -4,13 +4,14 @@ import { useState } from "react";
 
 const TodoInput = (props) => {
   const onChangeHandler = (event) => {
-    props.setEnteredTodo(event.target.value);
+    props.setTodoInput(event.target.value);
   };
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    props.onSave(props.enteredTodo);
-    props.setEnteredTodo("");
+    if (props.todoInput.length < 1) return;
+    props.HandleAddTodo(props.todoInput);
+    props.setTodoInput("");
   };
 
   return (
@@ -19,7 +20,7 @@ const TodoInput = (props) => {
       <form onSubmit={onSubmitHandler} action="" className="form_control">
         <input
           onChange={onChangeHandler}
-          value={props.enteredTodo}
+          value={props.todoInput}
           className="todo_text"
           type="text"
           placeholder="Add todo"

@@ -1,7 +1,7 @@
 .container {
   padding-block: 0.7em;
   /* gap: 1rem; */
-  background-color: var(--primary-clr-50);
+  background-color: var(--card-bg);
   border-radius: 0.5rem;
 }
 
@@ -19,15 +19,22 @@
 }
 
 .round {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.4rem;
+  height: 1.4rem;
   border-radius: 50%;
-  border: 1px solid var(--primary-clr-400);
+  border: 1px solid var(--light-clr-1);
   margin-left: 0.5rem;
-  margin-bottom: 0.4rem;
   cursor: pointer;
 }
-
+.dnd {
+  margin: 5rem auto;
+  width: fit-content;
+}
+.round:hover {
+  border: 1px solid var(--gradient);
+  border-color: gradient;
+  padding: 0.5rem;
+}
 .check_mark {
   background:
     url("../assets/images/icon-check.svg") center / contain no-repeat,
@@ -36,9 +43,10 @@
 }
 
 .todo_text {
+  color: var(--main-clr);
   height: 24px;
   margin-left: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   /* justify-self: right; */
   cursor: pointer;
 }
@@ -47,7 +55,7 @@
 }
 
 .border {
-  border-bottom: 1px solid var(--primary-clr-400);
+  border-bottom: 1px solid var(--light-clr-1);
   border-radius: 0;
 }
 
@@ -65,9 +73,8 @@
 }
 
 .light {
-  color: var(--primary-clr-200);
+  color: var(--light-clr-1);
 }
-
 .container.h-flex.info > .container.controls {
   display: none;
   margin: 0;
@@ -80,7 +87,7 @@
 }
 
 .actions:hover {
-  color: var(--primary-clr-400);
+  color: var(--main-clr);
   cursor: pointer;
 }
 
