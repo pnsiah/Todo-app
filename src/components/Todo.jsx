@@ -34,7 +34,7 @@ const Todo = () => {
   const [filter, setFilter] = useState("All");
 
   // get active todos count
-  const count = todos.filter((todo) => todo.isCompleted === false).length;
+  const count = todos.filter((todo) => !todo.isCompleted).length;
 
   const getFilteredList = () => {
     switch (filter) {
@@ -51,7 +51,7 @@ const Todo = () => {
 
   // Remove all completed todos
   const clearCompleted = () => {
-    setTodos(todos.filter((todo) => todo.isCompleted === false));
+    setTodos(todos.filter((todo) => !todo.isCompleted));
   };
 
   // Delete todoitem

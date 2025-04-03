@@ -16,6 +16,7 @@ const TodoItem = (props) => {
 
   // Handle drag and drop
   const handleSort = () => {
+    // Sort only in active mode
     if (props.filter !== "All") return;
 
     const copy = [...props.todos];

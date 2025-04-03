@@ -6,6 +6,7 @@
   --light-clr-2: hsl(233, 11%, 84%);
   --light-clr-1: hsl(236, 9%, 61%);
   --main-clr: hsl(235, 19%, 35%);
+  --transition-speed: 0.3s ease-in-out;
   --bg-mobile: url(./assets/images/bg-mobile-light.jpg);
   --bg-desktop: url(./assets/images/bg-desktop-light.jpg);
 }
@@ -28,6 +29,9 @@ body {
   background-color: var(--body-bg);
   position: relative;
   overflow-x: none;
+  transition:
+    background-color var(--transition-speed),
+    color var(--transition-speed);
 }
 
 .dark-mode {
@@ -81,10 +85,7 @@ input {
 .content {
   width: 80%;
   height: 80%;
-  /* background: var(--primary-clr-50); */
-  /* box-shadow: 2px 1px 100px black; */
   z-index: 5;
-  /* margin: 0 auto; */
   position: absolute;
   top: 20%;
   left: 50%;

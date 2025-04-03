@@ -3,7 +3,7 @@ import TodoControls from "./TodoControls";
 import "./shared.css";
 
 const TodoInfo = (props) => {
-  const clearHandler = (e) => {
+  const clearHandler = () => {
     props.clearCompleted();
   };
   return (

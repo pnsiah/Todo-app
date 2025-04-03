@@ -25,6 +25,7 @@
   margin-bottom: 0.5em;
   margin-left: 0.5rem;
   cursor: pointer;
+  transition: box-shadow var(--transition-speed);
 }
 
 .round:hover {
@@ -65,18 +66,18 @@
   margin-left: auto;
   padding-right: 1rem;
   cursor: pointer;
-  /* width: 2rem; */
-  /* height: 50%; */
 }
 
 .icon {
   font-size: 100px;
-  color: var(--primary-clr-400);
+  color: var(--light-clr-1);
 }
 
 .light {
   color: var(--light-clr-1);
+  transition: color var(--transition-speed);
 }
+
 .container.h-flex.info > .container.controls {
   display: none;
   margin: 0;
