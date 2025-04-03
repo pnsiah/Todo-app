@@ -3,7 +3,7 @@ import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 import TodoControls from "./TodoControls";
 import DragAndDropHint from "./DragAndDropHint";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const Todo = () => {
   // Initialize todos
@@ -34,7 +34,7 @@ const Todo = () => {
   const [filter, setFilter] = useState("All");
 
   // get active todos count
-  const count = todos.filter((todo) => todo.isCompleted === false).length;
+  const count = todos.filter((todo) => !todo.isCompleted).length;
 
   const getFilteredList = () => {
     switch (filter) {
@@ -51,10 +51,10 @@ const Todo = () => {
 
   // Remove all completed todos
   const clearCompleted = () => {
-    setTodos(todos.filter((todo) => todo.isCompleted === false));
+    setTodos(todos.filter((todo) => !todo.isCompleted));
   };
 
-  // Delete todo item
+  // Delete todoitem
   const removeItem = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -68,8 +68,8 @@ const Todo = () => {
     );
   };
 
+  // Update todo after drag and drop
   const updateTodos = (updatedList) => {
-    console.log("Updating todos:", updatedList);
     setTodos(updatedList);
   };
 
@@ -88,7 +88,6 @@ const Todo = () => {
         toggleTodoStatus={toggleTodoStatus}
         clearCompleted={clearCompleted}
         removeItem={removeItem}
-        allTodos={todos}
         updateTodos={updateTodos}
         filter={filter}
         setFilter={setFilter}

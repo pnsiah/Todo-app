@@ -1,15 +1,9 @@
-import "./container.css";
 import Card from "./Card";
 import TodoItem from "./TodoItem";
 import TodoInfo from "./TodoInfo";
+import EmptyTodo from "./EmptyTodo";
 
-const EmptyTodo = () => {
-  return (
-    <Card className="container">
-      <div className="error border">No Todo</div>
-    </Card>
-  );
-};
+import "./shared.css";
 
 const TodoList = (props) => {
   return (

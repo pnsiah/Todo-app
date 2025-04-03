@@ -1,5 +1,5 @@
 import Card from "./Card";
-import "./container.css";
+import "./shared.css";
 
 const DragAndDropHint = ({ filter }) =>
   filter === "All" ? (
