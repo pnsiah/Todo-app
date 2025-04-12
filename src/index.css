@@ -26,6 +26,7 @@
 body {
   height: 100vh;
   font-family: "Josefin Sans", sans-serif;
+  font-size: 1.1rem;
   background-color: var(--body-bg);
   position: relative;
   overflow-x: none;
